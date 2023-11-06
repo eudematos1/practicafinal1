@@ -18,6 +18,8 @@ class PersonaService {
     }
     fun save(persona: Persona): Persona{
         try{
+            persona.apellido?.takeIf { it.trim().isNotEmpty() }
+                    ?: throw Exception("Nombres no debe ser vacio")
             return personaRepository.save(persona)
         }
         catch (ex:Exception){
