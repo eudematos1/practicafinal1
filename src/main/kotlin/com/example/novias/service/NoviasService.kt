@@ -50,7 +50,7 @@ class NoviasService {
             val response = noviasRepository.findById(novias.id)
                     ?: throw Exception("ID no existe")
             response.apply {
-                apellido=novias.apellido //un atributo del modelo
+                apellido=novias.apellido
             }
             return noviasRepository.save(response)
         }
